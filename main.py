@@ -101,7 +101,7 @@ class LocalAIAgent:
         
         results = self.paper_collection.query(
             query_embeddings=[query_emb],
-            n_results=3,
+            n_results=10,
             include=["metadatas", "distances"]
         )
 
@@ -162,7 +162,7 @@ class LocalAIAgent:
         
         results = self.image_collection.query(
             query_embeddings=[query_emb],
-            n_results=3,
+            n_results=10,
             include=["metadatas", "distances"]
         )
         
