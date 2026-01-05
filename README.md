@@ -63,29 +63,27 @@ pip install chromadb sentence-transformers torch pypdf pillow "numpy<2.0"
 
 本项目通过 `main.py` 统一入口调用：
 
-* **添加并分类论文**：
-```bash
-python main.py add_paper "/path/to/paper.pdf" --topics "Computer_Vision,NLP,Robotics"
+1 批量整理与去重 (Batch Organize)
+一键扫描文件夹，自动建立索引并分类移动文件。支持重复运行（自动去重）。
 
-```
+Bash
 
+python main.py batch_organize downloads --topics "Computer_Vision,NLP,Robotics"
+2 添加单篇论文 (Add Single Paper)
+Bash
 
-* **语义搜索文献**：
-```bash
-python main.py search_paper "What is deep learning?"
+python main.py add_paper test3.pdf --topics "Computer_Vision,NLP,Robotics"
+3 自适应文献搜索 (Adaptive Search)
+系统将根据相关性自动决定返回数量（不再固定返回 3 个）。
 
-```
+Bash
 
+python main.py search_paper "Transformer architecture"
+4 图像索引与跨模态搜索 (Image Search)
+Bash
 
-* **扫描并索引图片**（首次使用需运行）：
-```bash
-python main.py index_images "/your/image/folder"
+# 建立/更新索引（支持增量更新）
+python main.py index_images test_images
 
-```
-
-
-* **以文搜图**：
-```bash
-python main.py search_image "a cute cat sitting on a chair"
-
-```
+# 语义搜图
+python main.py search_image "sunset by the beach"
