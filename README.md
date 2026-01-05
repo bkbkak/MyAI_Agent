@@ -1,20 +1,20 @@
-# 📚 本地多模态 AI 智能文献与图像管理助手
+# 本地多模态 AI 智能文献与图像管理助手
 
 **Local Multimodal AI Agent for Papers & Images**
 
 本项目是一个基于 **Python** 的本地多模态 AI 助手，利用文本与图像的深度语义表示（Embeddings），实现对本地 **科研文献（PDF）** 与 **图像素材** 的语义搜索、自动分类与高效管理。
 
-> 🎯 目标：用「自然语言」取代「文件名 + 文件夹」，让本地资料像搜索引擎一样好用。
+> 目标：用「自然语言」取代「文件名 + 文件夹」，让本地资料像搜索引擎一样好用。
 
 ---
 
 ## ✨ 项目亮点 (Highlights)
 
-* 🔍 **语义级检索**：不依赖文件名，直接理解内容
-* 🧠 **多模态支持**：文本 + 图像统一向量空间
-* 📂 **自动分类归档**：论文下载后自动整理
-* ⚡ **本地运行、低延迟**：无需云端 API
-* 🔁 **幂等设计**：可重复执行，不产生重复索引
+* **语义级检索**：不依赖文件名，直接理解内容
+* **多模态支持**：文本 + 图像统一向量空间
+* **自动分类归档**：论文下载后自动整理
+* **本地运行、低延迟**：无需云端 API
+* **幂等设计**：可重复执行，不产生重复索引
 
 ---
 
@@ -34,7 +34,7 @@
 
 ### 2.1 📄 智能文献管理 (Paper Management)
 
-#### ✅ 语义搜索
+#### 语义搜索
 
 * 支持自然语言查询，如：
 
@@ -42,14 +42,14 @@
   * `"attention mechanism in vision"`
 * 基于文献正文语义而非标题匹配，召回更精准
 
-#### ✅ 自动分类与整理
+#### 自动分类与整理
 
 * 运行 `add_paper` 或 `batch_organize`
 * 系统自动读取 PDF 内容
 * 根据预设主题（如 `Computer_Vision / NLP / Robotics`）分类
 * 自动移动到对应子目录
 
-#### ✅ 文件向量索引
+#### 文件向量索引
 
 * 使用 **ChromaDB** 作为本地向量数据库
 * 支持持久化存储
@@ -57,9 +57,9 @@
 
 ---
 
-### 2.2 🖼️ 智能图像管理 (Image Management)
+### 2.2 智能图像管理 (Image Management)
 
-#### ✅ 以文搜图（Text-to-Image Search）
+#### 以文搜图（Text-to-Image Search）
 
 * 基于 **CLIP 多模态模型**
 * 无需任何人工标签
@@ -68,7 +68,7 @@
   * `"sunset by the beach"`
   * `"a cat sitting on a laptop"`
 
-#### ✅ 本地图库索引
+#### 本地图库索引
 
 * 扫描指定目录
 * 提取图像 embedding
@@ -114,8 +114,6 @@
 pip install chromadb sentence-transformers torch pypdf pillow "numpy<2.0"
 ```
 
-> ⚠️ 注意：`numpy<2.0` 用于避免部分深度学习依赖兼容性问题
-
 ---
 
 ## 6. 使用说明 (Usage Guide)
@@ -137,7 +135,7 @@ pip install chromadb sentence-transformers torch pypdf pillow "numpy<2.0"
 python main.py batch_organize downloads --topics "Computer_Vision,NLP,Robotics"
 ```
 
-✅ 支持重复执行（幂等设计，不会重复入库）
+支持重复执行（幂等设计，不会重复入库）
 
 ---
 
@@ -173,9 +171,9 @@ python main.py search_paper "Transformer architecture"
 
 ---
 
-### 6.4 🖼️ 图像索引与跨模态搜索 (Image Search)
+### 6.4 图像索引与跨模态搜索 (Image Search)
 
-#### 1️⃣ 建立 / 更新图像索引
+#### 建立 / 更新图像索引
 
 ```bash
 python main.py index_images test_images
@@ -185,12 +183,12 @@ python main.py index_images test_images
 * 提取 CLIP embedding
 * 支持增量更新
 
-#### 2️⃣ 以文搜图
+#### 以文搜图
 
 ```bash
 python main.py search_image "sunset by the beach"
 ```
 
-📌 建议使用英文描述，CLIP 对英文语义支持最佳。
+建议使用英文描述，CLIP 对英文语义支持最佳。
 
 ---
